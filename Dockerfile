@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 COPY agencia/ .
 
 # command to run on container start
-CMD [ "python", "0_project/0_LunarLander-v2.py" ]
+# CMD [ "python", "0_project/0_LunarLander-v2.py" ]
