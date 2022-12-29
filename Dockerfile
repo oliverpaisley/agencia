@@ -8,10 +8,12 @@ WORKDIR /agencia
 COPY requirements.txt .
 
 # install dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 # copy the content of the local src directory to the working directory
 COPY agencia/ .
 
 # command to run on container start
-# CMD [ "python", "0_project/0_LunarLander-v2.py" ]
+CMD ["bash"] 
+
+# CMD ["python", "0_project/0_LunarLander-v2.py" ]
