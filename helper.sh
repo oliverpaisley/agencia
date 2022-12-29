@@ -1,24 +1,8 @@
-# File to build and start container for given BRANCH
-
-# docker_helper.sh austin-dev
-
 BRANCH=${1:-agenica-dev} # take 0th argument if given, else use default
 echo $BRANCH
 
-# 0. Build an image from dockerfile
-# docker build -t $BRANCH-image . -f Dockerfile #&>> docker_logs.txt
-
-# 1. STOP docker container IF EXISTS/RUNNING
-# docker stop $BRANCH-container
-
-# 2. CREATE / REPLACE & 3. RUN > Start container from image
-# docker run --rm --name $BRANCH-container -di $BRANCH-image #&>> docker_logs.txt
-
-# We may use the below link for added functionality at a later date
-# https://typeofnan.dev/how-to-stop-all-docker-containers/
-
 # Build container
-devcontainer build --workspace-folder agencia
+devcontainer build --image-name $BRANCH --workspace-folder agencia
 
 # Open VSCode with attached container
 devcontainer open agencia
