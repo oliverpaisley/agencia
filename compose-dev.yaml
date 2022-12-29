@@ -1,0 +1,6 @@
+services:
+  agencia:
+    build: .
+    image: austin-dev # simply names the image that is being built
+    container_name: austin-dev-container
+    # volumes: .:/agencia
