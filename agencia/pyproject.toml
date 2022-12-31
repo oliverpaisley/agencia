@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "agencia"
+version = "0.0.1"
+description = "RL Platform"
+authors = ["Agencia Team <team@agencia.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+tqdm = "^4.64.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
