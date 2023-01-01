@@ -1,6 +1,10 @@
 {
+  "name": "Agencia Container", 
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "settings": {
+        "python.pythonPath": "usr/local/bin/python"
+    }
   "features": {
 }
