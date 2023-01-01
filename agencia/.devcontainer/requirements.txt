@@ -1,3 +1,0 @@
-gymnasium[box2d]
-gymnasium
-tqdm
