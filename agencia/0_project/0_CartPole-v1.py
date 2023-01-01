@@ -1,9 +1,11 @@
 import gymnasium as gym
 from tqdm import tqdm
 
-print("STARTED: LundarLander-v2")
+env_name = "CartPole-v1"
+print("STARTED: {}".format(env_name))
 
-env = gym.make("LunarLander-v2") #, render_mode="human")
+env = gym.make('CartPole-v1') #, render_mode="human")
+
 observation, info = env.reset(seed=42)
 for _ in tqdm(range(1000)):
    action = env.action_space.sample()  # this is where you would insert your policy
@@ -13,4 +15,4 @@ for _ in tqdm(range(1000)):
       observation, info = env.reset()
 env.close()
 
-print("COMPLETE: LundarLander-v2")
+print("COMPLETE: {}".format(env_name))
