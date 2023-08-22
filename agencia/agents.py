@@ -15,6 +15,7 @@ class Random(Agent):
         pass
 
     def take_action(self, actions: List[int]):
+        # print('RANDOM ACTION TAKEN...')
         return np.random.choice(actions)
 
 
