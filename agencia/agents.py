@@ -15,7 +15,6 @@ class Random(Agent):
         pass
 
     def take_action(self, actions: List[int]):
-        # print('RANDOM ACTION TAKEN...')
         return np.random.choice(actions)
 
 
@@ -27,5 +26,3 @@ class Random(Agent):
 # class TDControl(Agent):
 #     def __init__(self):
 #         pass
-
-
