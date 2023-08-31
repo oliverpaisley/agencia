@@ -10,6 +10,7 @@ python = "^3.10"
 numpy = "^1.25.2"
 pandas = "^2.0.3"
 tqdm = "^4.66.1"
+gymnasium = "^0.29.1"
 
 
 [build-system]

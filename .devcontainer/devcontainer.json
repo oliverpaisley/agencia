@@ -8,10 +8,11 @@
 	"features": {
 		// "ghcr.io/devcontainers-contrib/features/pipx-package:1": {}, 
 		// "ghcr.io/devcontainers-contrib/features/apt-get-packages:1": {"packages": ["libffi-dev"]}, 
-		"ghcr.io/devcontainers-contrib/features/asdf-package:1": {"plugin": "python", "version": "3.10.11"}
+		// "ghcr.io/devcontainers-contrib/features/asdf-package:1": {"plugin": "python", "version": "3.10.11"}
 		// "ghcr.io/devcontainers-contrib/features/poetry:2": {},
 		// "ghcr.io/devcontainers-contrib/features/ruff:1": {}
 		// "ghcr.io/jungaretti/features/make:1": {}
+		
 	}, 
 
 	"customizations": {
@@ -29,7 +30,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "asdf plugin add poetry && asdf install poetry latest && asdf global poetry latest && poetry config virtualenvs.create true && poetry config virtualenvs.in-project false && poetry install"
+	"postCreateCommand": "sudo apt-get -y update && sudo apt-get install -y libffi-dev && asdf plugin add poetry && asdf install poetry latest && asdf global poetry latest && poetry config virtualenvs.create true && poetry config virtualenvs.in-project false && poetry install"
 	// Configure tool-specific properties.
 	// "customizations": {},
 
