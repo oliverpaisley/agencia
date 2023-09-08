@@ -6,7 +6,7 @@ authors = ["Oliver Paisley <oliverjdpaisley@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "3.11.5"
 numpy = "^1.25.2"
 pandas = "^2.0.3"
 tqdm = "^4.66.1"
