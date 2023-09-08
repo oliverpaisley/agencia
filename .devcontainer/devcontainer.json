@@ -1,27 +1,27 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-	"name": "Ubuntu",
+	"name": "Agencia",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:jammy", 
+	"build": { "dockerfile": "Dockerfile"},
 
-	"features": {
-		// "ghcr.io/devcontainers-contrib/features/pipx-package:1": {}, 
-		// "ghcr.io/devcontainers-contrib/features/apt-get-packages:1": {"packages": ["libffi-dev"]}, 
-		// "ghcr.io/devcontainers-contrib/features/asdf-package:1": {"plugin": "python", "version": "3.10.11"}
-		// "ghcr.io/devcontainers-contrib/features/poetry:2": {},
-		// "ghcr.io/devcontainers-contrib/features/ruff:1": {}
-		// "ghcr.io/jungaretti/features/make:1": {}
-		
-	}, 
+	// "features": {
+	// 	// "ghcr.io/devcontainers-contrib/features/pipx-package:1": {}, 
+	// 	// "ghcr.io/devcontainers-contrib/features/apt-get-packages:1": {"packages": ["libffi-dev"]}, 
+	// 	// "ghcr.io/devcontainers-contrib/features/asdf-package:1": {"plugin": "python", "version": "3.10.11"}
+	// 	// "ghcr.io/devcontainers-contrib/features/poetry:2": {},
+	// 	// "ghcr.io/devcontainers-contrib/features/ruff:1": {}
+	// 	// "ghcr.io/jungaretti/features/make:1": {}
+	// 	"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {}
+	// }, 
 
 	"customizations": {
     	// Configure properties specific to VS Code.
 		"vscode": {
 		// Add the IDs of extensions you want installed when the container is created.
-		"extensions": ["geddski.macros", "wraith13.open-in-github-desktop"]
+		"extensions": ["ms-azuretools.vscode-docker", "geddski.macros", "wraith13.open-in-github-desktop"]
 		}
-  	}, 
+	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -30,7 +30,14 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo apt-get -y update && sudo apt-get install -y libffi-dev && asdf plugin add poetry && asdf install poetry latest && asdf global poetry latest && poetry config virtualenvs.create true && poetry config virtualenvs.in-project false && poetry install"
+	// zlib1g-dev libssl-dev
+	
+	// "postCreateCommand": "poetry install"
+
+	// "postCreateCommand": "sudo apt-get -y update && sudo apt-get install -y libffi-dev bzip2-doc libncurses5 libncurses5-dev libncursesw5 libncursesw5-dev libreadline-dev readline-doc libsqlite3-dev libbz2-dev liblzma-dev python3-tk python3.11-tk",
+
+	// "postStartCommand": "brew install asdf && asdf plugin add python && asdf install python 3.11.5 && asdf global python 3.11.5 && asdf plugin add poetry && asdf install poetry latest && asdf global poetry latest && poetry config virtualenvs.create true && poetry config virtualenvs.in-project false && poetry install"
+
 	// Configure tool-specific properties.
 	// "customizations": {},
 
