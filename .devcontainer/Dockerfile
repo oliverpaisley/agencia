@@ -1,8 +1,8 @@
 FROM ubuntu:23.04
 
-COPY poetry.lock pyproject.toml .tool-versions ./
+# USER root
 
-# WORKDIR /.devcontainer/
+WORKDIR /agencia
 
 RUN apt-get update -y && \
     apt-get install -y -q --allow-unauthenticated \
@@ -40,13 +40,14 @@ RUN brew install asdf && \
     asdf install poetry 1.6.1 && \
     asdf global poetry 1.6.1
 
+ENV PATH="${PATH}:/root/.asdf/installs/python/3.11.5/bin"
 ENV PATH="${PATH}:/root/.asdf/installs/poetry/1.6.1/bin"
+ENV POETRY_HOME="/"
 
-# ENV POETRY_HOME="/opt/poetry" \
-#     POETRY_VIRTUALENVS_CREATE=true \
-#     POETRY_VIRTUALENVS_IN_PROJECT=false \
-#     POETRY_NO_INTERACTION=1 \
-#     POETRY_VERSION=1.6.1
+COPY pyproject.toml poetry.lock .tool-versions README.md ./
 
 RUN poetry env use /root/.asdf/installs/python/3.11.5/bin/python && \
-    poetry install
+    poetry install --no-root --no-directory
+
+COPY agencia/ ./agencia
+RUN poetry install
