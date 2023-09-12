@@ -17,8 +17,8 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Pre-build dev container image
-      uses: devcontainers/ci@v0.3
-      with:
-        imageName: ghcr.io/austinmwhaley/agencia
-        cacheFrom: ghcr.io/austinmwhaley/agencia
-        push: always
+        uses: devcontainers/ci@v0.3
+        with:
+          imageName: ghcr.io/austinmwhaley/agencia
+          cacheFrom: ghcr.io/austinmwhaley/agencia
+          push: always
