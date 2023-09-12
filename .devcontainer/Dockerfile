@@ -47,7 +47,8 @@ ENV POETRY_HOME="/"
 COPY pyproject.toml poetry.lock .tool-versions README.md ./
 
 RUN poetry env use /root/.asdf/installs/python/3.11.5/bin/python && \
-    poetry install --no-root --no-directory
+    poetry install --no-root --no-directory && \
+    pip install black
 
 COPY agencia/ ./agencia
 RUN poetry install
