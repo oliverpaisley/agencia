@@ -1,8 +1,8 @@
 from agencia.agents import Agent
 from agencia.envs import Environment
 
-class Infra:
 
+class Infra:
     def __init__(self):
         pass
 
@@ -10,11 +10,10 @@ class Infra:
         pass
 
 
-
 # 1. Create Environment
 # 2. Create Agent (no action space known)
 # 3. Create Task
-    # 3a. Transfer knowledge of env.action_space to agent => (agent.action_space)
+# 3a. Transfer knowledge of env.action_space to agent => (agent.action_space)
 
 
 # 0_Cartpole.py
