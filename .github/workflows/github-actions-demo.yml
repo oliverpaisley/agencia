@@ -16,9 +16,15 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2 
+        with:
+          registry: ghcr.io
+          username: austinmwhaley
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Pre-build dev container image
         uses: devcontainers/ci@v0.3
         with:
           imageName: ghcr.io/austinmwhaley/agencia
-          cacheFrom: ghcr.io/austinmwhaley/agencia
-          push: always
+          # cacheFrom: ghcr.io/austinmwhaley/agencia
+          # push: always
