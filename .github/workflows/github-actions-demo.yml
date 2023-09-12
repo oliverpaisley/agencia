@@ -16,11 +16,6 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-
-name: Deploy Image to GitHub Container Registry
-run-name: ${{ github.actor }} is pushing an image to the container registry 🚀
-on: [push]
-jobs:
   Build-Save-Image:
     runs-on: ubuntu-latest
     steps:
@@ -28,4 +23,16 @@ jobs:
       - run: docker build -t agencia .
       - run: echo "Attempting to push the image..."
       - run: docker push ghcr.io/austinmwhaley/agencia:0.0.1
+
+# name: Deploy Image to GitHub Container Registry
+# run-name: ${{ github.actor }} is pushing an image to the container registry 🚀
+# on: [push]
+# jobs:
+#   Build-Save-Image:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo "Attempting to build the image..."
+#       - run: docker build -t agencia .
+#       - run: echo "Attempting to push the image..."
+#       - run: docker push ghcr.io/austinmwhaley/agencia:0.0.1
     
