@@ -1,9 +1,9 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Build and save image
+run-name: ${{ github.actor }} is building the Docker iamge for the Agencia Environment! 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+  Build-Cache-Image:
+    runs-on: ubuntu:23.04
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -16,23 +16,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-  Build-Save-Image:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Attempting to build the image..."
-      - run: docker build -t agencia:0.0.1 -f .devcontainer/Dockerfile .
-      - run: echo "Attempting to push the image..."
-      - run: docker push ghcr.io/austinmwhaley/agencia:0.0.1
-
-# name: Deploy Image to GitHub Container Registry
-# run-name: ${{ github.actor }} is pushing an image to the container registry 🚀
-# on: [push]
-# jobs:
-#   Build-Save-Image:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: echo "Attempting to build the image..."
-#       - run: docker build -t agencia .
-#       - run: echo "Attempting to push the image..."
-#       - run: docker push ghcr.io/austinmwhaley/agencia:0.0.1
-    
+      - name: Pre-build dev container image
+      uses: devcontainers/ci@v0.3
+      with:
+        imageName: ghcr.io/austinmwhaley/agencia
+        cacheFrom: ghcr.io/austinmwhaley/agencia
+        push: always
