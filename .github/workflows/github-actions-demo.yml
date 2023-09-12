@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is building the Docker iamge for the Agencia Envir
 on: [push]
 jobs:
   Build-Cache-Image:
-    runs-on: ubuntu:23.04
+    runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
