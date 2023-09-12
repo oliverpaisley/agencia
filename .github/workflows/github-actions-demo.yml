@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Attempting to build the image..."
-      - run: docker build -t agencia .
+      - run: docker build -t agencia:0.0.1 -f .devcontainer/Dockerfile .
       - run: echo "Attempting to push the image..."
       - run: docker push ghcr.io/austinmwhaley/agencia:0.0.1
 
