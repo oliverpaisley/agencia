@@ -3,10 +3,7 @@
 	"build": {
 		"dockerfile": "Dockerfile", 
 		"context": "..", 
-		"cacheFrom": [
-			"type=registry,ref=ghcr.io/austinmwhaley/agencia:latest",
-			"type=local,src=../docker-cache"
-		]},
+		"cacheFrom": ["type=local,src=.."]},
  
 	"workspaceMount": "source=${localWorkspaceFolder},target=/agencia,type=bind",
 	"workspaceFolder": "/agencia", 
