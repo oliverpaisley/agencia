@@ -26,6 +26,6 @@ jobs:
         uses: devcontainers/ci@v0.3
         with:
           imageName: ghcr.io/austinmwhaley/agencia
-          cacheFrom: ghcr.io/austinmwhaley/agencia
+          # cacheFrom: ghcr.io/austinmwhaley/agencia
           push: always
           runCmd: black .
